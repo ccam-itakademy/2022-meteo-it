@@ -1,4 +1,5 @@
 import requests
+import json
 
 city = "Lyon"
 
@@ -10,3 +11,8 @@ querystring = {
 
 response = requests.request("GET", url, params=querystring)
 print(response.text)
+
+json.dump(city)
+
+#Envoyer dans un fichier la réponse
+#Py -> php
