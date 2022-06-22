@@ -1,5 +1,9 @@
+import string
 import requests
 import json
+from bs4 import BeautifulSoup as bs
+import os
+import re 
 
 from datetime import datetime
 
@@ -38,4 +42,13 @@ weather_report['humidity'] = current_weather['humidity']
 weather_report['wind'] = current_weather['windspeedKmph']
 weather_report['rain'] = current_weather['precipMM']
 
-print(weather_report)
+base=os.path.dirname(os.path.abspath(__file__))
+php=open(os.path.join(base, 'index.php'))
+soup=bs(php, 'html.parser')
+old_text=soup.find("li", {"id":"location"})
+new_text=old_text.find(text=re.compile(old_text.string)).replace_with(weather_report['location'])
+with open("index.php", "wb") as f_output:
+
+   f_output.write(soup.prettify("utf-8"))
+
+print(new_text.string)
