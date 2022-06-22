@@ -1,5 +1,6 @@
 import requests
 import json
+
 from datetime import datetime
 
 today = datetime.today().strftime('%Y-%m-%d')
