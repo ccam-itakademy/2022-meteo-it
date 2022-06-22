@@ -7,7 +7,8 @@ from datetime import datetime
 
 today = datetime.today().strftime('%Y-%m-%d')
 
-city = "Paris"
+# à remplacer par la variable retournée par le micro / la sélection dans la liste
+city = "Clermont-Ferrand"
 
 def askWttr(city):
     url = "https://wttr.in/" + city
@@ -18,7 +19,6 @@ def askWttr(city):
     return requests.request("GET", url, params=querystring)
 
 response = askWttr(city)
-
 
 response_json = response.text
 
@@ -46,7 +46,7 @@ weather_report['humidity'] = {'value': current_weather['humidity'], 'unit': ' %'
 weather_report['wind'] = {'value': current_weather['windspeedKmph'], 'unit': ' km/h'}
 weather_report['rain'] = {'value': current_weather['precipMM'], 'unit': 'mm'}
 
-output_file = 'output.php'
+output_file = '../output/output.php'
 base = os.path.dirname(os.path.abspath(__file__))
 php = open(os.path.join(base, output_file))
 soup = bs(php, 'html.parser')
@@ -55,3 +55,5 @@ for key, value in weather_report.items():
     new_text = old_text.find(text=re.compile(old_text.string)).replace_with(weather_report[key]['value'] + (weather_report[key]['unit'] if weather_report[key]['unit'] else ''))
     with open(output_file, "wb") as f_output:
         f_output.write(soup.prettify("utf-8"))
+
+refresh_page = True
