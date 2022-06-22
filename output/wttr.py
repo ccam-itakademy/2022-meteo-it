@@ -19,7 +19,6 @@ location = city + ', ' + json.dumps(area[0]['region'][0]['value']).strip('"') + 
 
 current_weather = json_load['current_condition'][0]
 day_weather = None
-
 for day in json_load['weather']:
     if day['date'] == today:
         day_weather = day
