@@ -11,13 +11,13 @@
  <body>
   <ul>
    <li id="location">
-    Clermont-Ferrand, Auvergne, France
+    Marseille, Provence-Alpes-Cote d'Azur, France
    </li>
    <li id="day_average_temperature">
-    19 °C
+    24 °C
    </li>
    <li id="day_min_temperature">
-    12 °C
+    22 °C
    </li>
    <li id="day_max_temperature">
     28 °C
@@ -29,13 +29,13 @@
     Partiellement couvert
    </li>
    <li id="humidity">
-    35 %
+    58 %
    </li>
    <li id="wind">
-    28 km/h
+    37 km/h
    </li>
    <li id="rain">
-    0.2mm
+    0.0mm
    </li>
   </ul>
  </body>
