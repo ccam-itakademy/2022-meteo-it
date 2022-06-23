@@ -8,7 +8,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 3
-MIC_INDEX = 0 # Index à modifier en fonction de l'index du micro
+MIC_INDEX = 1 # Index à modifier en fonction de l'index du micro
 WAVE_OUTPUT_FILENAME = "record.wav"
 
 p = pyaudio.PyAudio()
