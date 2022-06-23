@@ -8,6 +8,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 3
+MIC_INDEX = 0 # Index à modifier en fonction de l'index du micro
 WAVE_OUTPUT_FILENAME = "record.wav"
 
 p = pyaudio.PyAudio()
@@ -16,6 +17,7 @@ stream = p.open(format=FORMAT,
                 channels=CHANNELS,
                 rate=RATE,
                 input=True,
+                input_device_index=MIC_INDEX,
                 frames_per_buffer=CHUNK)
 
 print("* Enregistrement de la voix")
