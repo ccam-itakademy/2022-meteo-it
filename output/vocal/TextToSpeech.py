@@ -4,7 +4,6 @@ from gtts import gTTS
 
 # This module is imported so that we can
 # play the converted audio
-import os
 
 # The text that you want to convert to audio
 mytext = 'Bonjour lequipe Météo PI'
@@ -18,9 +17,16 @@ language = 'fr'
 # have a high speed
 myobj = gTTS(text=mytext, lang=language, slow=False)
 
-# Saving the converted audio in a mp3 file named
+# Saving the converted audio in a wav file named
 # welcome
 myobj.save("welcome.mp3")
 
 # Playing the converted file
-#os.system("mpg321 welcome.mp3")
+# os.system("mpg321 welcome.mp3")
+
+from pydub import AudioSegment
+from pydub.playback import play
+
+
+song = AudioSegment.from_mp3("welcome.mp3")
+play(song)

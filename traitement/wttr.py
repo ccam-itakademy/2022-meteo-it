@@ -63,5 +63,3 @@ for key, value in weather_report.items():
 
 driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
 driver.get('http://192.168.1.20/2022-meteo-it/output/output.php')
-time.sleep(300)
-driver.close()

@@ -11,16 +11,16 @@
  <body>
   <ul>
    <li id="location">
-    Marseille, Provence-Alpes-Cote d'Azur, France
+    Paris, Ile-de-France, France
    </li>
    <li id="day_average_temperature">
-    24 °C
+    20 °C
    </li>
    <li id="day_min_temperature">
-    22 °C
+    17 °C
    </li>
    <li id="day_max_temperature">
-    28 °C
+    23 °C
    </li>
    <li id="weather_code">
     116
@@ -29,13 +29,13 @@
     Partiellement couvert
    </li>
    <li id="humidity">
-    58 %
+    73 %
    </li>
    <li id="wind">
-    37 km/h
+    17 km/h
    </li>
    <li id="rain">
-    0.0mm
+    0.2mm
    </li>
   </ul>
  </body>
