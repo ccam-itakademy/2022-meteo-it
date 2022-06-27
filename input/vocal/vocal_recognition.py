@@ -3,12 +3,14 @@ import wave
 import speech_recognition as sr
 import py_error_handling
 
+from get_mic_index import indexMic
+
 CHUNK = 4*1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 3
-MIC_INDEX = 2 # Index à modifier en fonction de l'index du micro
+MIC_INDEX = indexMic # Index à modifier en fonction de l'index du micro
 WAVE_OUTPUT_FILENAME = "record.wav"
 
 with py_error_handling.noalsaerr():
