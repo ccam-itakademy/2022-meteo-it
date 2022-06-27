@@ -10,7 +10,7 @@ sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
 from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
-city = recorded_city
+city = 'Paris'
 
 def askWttr(city):
     url = "https://wttr.in/" + city
