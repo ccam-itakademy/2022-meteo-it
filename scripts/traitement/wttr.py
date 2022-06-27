@@ -69,4 +69,4 @@ weather_report = getWeatherReport(response)
 
 # This will open a new window every time...
 driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
-driver.get('http://192.168.1.20/2022-meteo-it/output/output.php')
+driver.get('http://192.168.1.20/2022-meteo-it/templates/output.php')
