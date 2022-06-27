@@ -2,7 +2,7 @@
 from flask import Flask, render_template
 
 import sys
-sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
+sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement')
 from wttr import weather_report as weather_report
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def weather_report():
         humidity = humidity,
         wind = wind,
         rain = rain,
-    )
-
+    )    
+    
 if __name__ == "__main__":
     app.run()
