@@ -1,13 +1,13 @@
 import requests
 import json
 from bs4 import BeautifulSoup as bs
-import os
-import re 
+# import os
+# import re 
 from datetime import datetime
 from selenium import webdriver
 
 import sys
-sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal') # to modify
+sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
 from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
