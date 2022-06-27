@@ -7,7 +7,7 @@ from datetime import datetime
 from selenium import webdriver
 
 import sys
-sys.path.insert(0, '/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal') # to modify
+sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal') # to modify
 from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
