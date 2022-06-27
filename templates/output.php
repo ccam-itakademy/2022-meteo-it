@@ -8,15 +8,14 @@
 </head>
 <body>
     <ul>
-        <li id="location">Paris, Ile-de-France, France</li>
-        <li id="day_average_temperature">20 °C</li>
-        <li id="day_min_temperature">17 °C</li>
-        <li id="day_max_temperature">23 °C</li>
-        <li id="weather_code">116</li>
-        <li id="weather_description">Partiellement couvert</li>
-        <li id="humidity">73 %</li>
-        <li id="wind">17 km/h</li>
-        <li id="rain">0.2mm</li>
+        <li id="location">{{ location }}</li>
+        <li id="day_average_temperature">{{ day_average_temperature }}</li>
+        <li id="day_min_temperature">{{ day_min_temperature }}</li>
+        <li id="day_max_temperature">{{ day_max_temperature }}</li>
+        <li id="weather_description">{{ weather_description }}</li>
+        <li id="humidity">{{ humidity }}</li>
+        <li id="wind">{{ wind }}</li>
+        <li id="rain">{{ rain }}</li>
     </ul>
 </body>
 </html>

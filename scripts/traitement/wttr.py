@@ -49,7 +49,7 @@ def getWeatherReport(response):
     weather_report['weather_description'] = {'value': current_weather['lang_fr'][0]['value'], 'unit': None}
     weather_report['humidity'] = {'value': current_weather['humidity'], 'unit': ' %'}
     weather_report['wind'] = {'value': current_weather['windspeedKmph'], 'unit': ' km/h'}
-    weather_report['rain'] = {'value': current_weather['precipMM'], 'unit': 'mm'}
+    weather_report['rain'] = {'value': current_weather['precipMM'], 'unit': ' mm'}
 
     return weather_report
 
