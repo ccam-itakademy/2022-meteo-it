@@ -10,7 +10,7 @@ sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
 from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
-city = 'Paris'
+city = recorded_city
 
 def askWttr(city):
     url = "https://wttr.in/" + city
@@ -54,6 +54,7 @@ def getWeatherReport(response):
 
 response = askWttr(city)
 weather_report = getWeatherReport(response)
+
 
 # Change the output.php -> replaced with flask templating
 # output_file = '../../templates/output.php'
