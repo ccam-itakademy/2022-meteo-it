@@ -3,9 +3,10 @@ from flask import Flask, render_template, redirect
 import webbrowser
 from threading import Timer
 import os
+import time
 
 app = Flask(__name__)
-
+data = {}
 @app.route("/welcome")
 def welcome():
     return render_template("welcome.php", message = "Bienvenue sur Météo ")
@@ -15,13 +16,15 @@ def open_browser():
 
 @app.route("/weather-report")
 def weather_report():
-
     import sys
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement')
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
+    sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/output/vocal')
+    
     # sys.path.insert(0, '/Applications/MAMP/htdocs/2022-meteo-it/scripts/traitement')
     from vocal_recognition import getCityFromAudio
     from wttr import askWttr,getWeatherReport
+    from TextToSpeech import audioWeatherReport
     
     recorded_city = getCityFromAudio() 
     response = askWttr(recorded_city)
@@ -36,7 +39,10 @@ def weather_report():
     humidity = data['humidity']['value'] + data['humidity']['unit']
     wind = data['wind']['value'] + data['wind']['unit']
     rain = data['rain']['value'] + data['rain']['unit']
-
+    
+    if (recorded_city):
+        audioWeatherReport(data)
+    
     return render_template("output.php", 
         location = location,
         day_average_temperature = day_average_temperature,
@@ -51,3 +57,4 @@ def weather_report():
 if __name__ == "__main__":
     Timer(1, open_browser).start();
     app.run()
+    
