@@ -59,8 +59,6 @@ def getWeatherReport(response):
 response = askWttr(city)
 weather_report = getWeatherReport(response)
 
-
-
 # Change the output.php -> replaced with flask templating
 # output_file = '../../templates/output.php'
 # base = os.path.dirname(os.path.abspath(__file__))
