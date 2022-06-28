@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup as bs
 # import os
 # import re 
 from datetime import datetime
-from selenium import webdriver
 
 import sys
 sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
@@ -72,7 +71,3 @@ weather_report = getWeatherReport(response)
 #     new_text = old_text.find(text=re.compile(old_text.string)).replace_with(weather_report[key]['value'] + (weather_report[key]['unit'] if weather_report[key]['unit'] else ''))
 #     with open(output_file, "wb") as f_output:
 #         f_output.write(soup.prettify("utf-8"))
-
-# This will open a new window every time...
-driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
-driver.get('http://192.168.1.20/2022-meteo-it/templates/output.php')
