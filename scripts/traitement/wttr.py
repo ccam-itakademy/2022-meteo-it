@@ -8,10 +8,11 @@ from selenium import webdriver
 
 import sys
 sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
-from vocal_recognition import text as recorded_city
+#from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
-city = recorded_city
+#city = recorded_city
+city = 'sannois'
 
 def askWttr(city):
     url = "https://wttr.in/" + city
@@ -50,11 +51,16 @@ def getWeatherReport(response):
     weather_report['humidity'] = {'value': current_weather['humidity'], 'unit': ' %'}
     weather_report['wind'] = {'value': current_weather['windspeedKmph'], 'unit': ' km/h'}
     weather_report['rain'] = {'value': current_weather['precipMM'], 'unit': ' mm'}
-
+    
+    fichier = open("weather_description.txt", "w")
+    fichier.write(weather_report['weather_description']['value'])
+    fichier.close()
     return weather_report
 
 response = askWttr(city)
 weather_report = getWeatherReport(response)
+
+
 
 # Change the output.php -> replaced with flask templating
 # output_file = '../../templates/output.php'
