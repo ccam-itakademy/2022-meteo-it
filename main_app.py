@@ -15,12 +15,19 @@ def open_browser():
 
 @app.route("/restart")
 def restart():
-    return redirect("/welcome")
+    if (os.path.exists('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/city.txt') and os.path.exists('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/record.wav')):
+        os.remove('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/city.txt')
+        os.remove('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/record.wav')
+        return redirect("/welcome")
+    else:
+        return redirect("/welcome")
+
 
 @app.route("/weather-report")
 def weather_report():
     import sys
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement')
+    # sys.path.insert(0, '/Applications/MAMP/htdocs/2022-meteo-it/scripts/traitement')
     from wttr import weather_report as weather_report
     data = weather_report
     

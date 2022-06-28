@@ -1,16 +1,16 @@
 import requests
 import json
 from bs4 import BeautifulSoup as bs
-# import os
-# import re 
 from datetime import datetime
 
 import sys
 sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
+# sys.path.insert(0, '/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal')
 from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
 city = recorded_city
+# city ="Paris"
 
 def askWttr(city):
     url = "https://wttr.in/" + city
@@ -54,7 +54,6 @@ def getWeatherReport(response):
 
 response = askWttr(city)
 weather_report = getWeatherReport(response)
-
 
 # Change the output.php -> replaced with flask templating
 # output_file = '../../templates/output.php'
