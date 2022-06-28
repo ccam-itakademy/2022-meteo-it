@@ -22,7 +22,9 @@ def weather_report():
     humidity = data['humidity']['value'] + data['humidity']['unit']
     wind = data['wind']['value'] + data['wind']['unit']
     rain = data['rain']['value'] + data['rain']['unit']
-
+    fichier = open("weather_description.txt", "w")
+    fichier.write(str(weather_report['weather_description']))
+    fichier.close()
     return render_template("output.php", 
         location = location,
         day_average_temperature = day_average_temperature,

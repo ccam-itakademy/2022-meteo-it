@@ -6,7 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résultat de la recherche</title>
 </head>
-<body>
+
+<?php
+$conf = include('config.php');
+$weather_description = file_get_contents('/Applications/MAMP/htdocs/2022-meteo-it/scripts/traitement/weather_description.txt');
+
+$backgroundUrl = null;
+// a définir : tableauPluie, tableauSoleil, tableauNuage, tableauNeige
+// faire plusieurs if ou un switch pour mettre la bonne valeur dans $backgroundUrl
+// if (in_array($weather_description, $tableauPluie)) {
+if ($weather_description == "Ensoleillé") {
+    $backgroundUrl = $conf['soleil'];
+};
+
+echo $backgroundUrl;
+?>
+
+<body style="background:url(<?php echo $backgroundUrl; ?>);">
     <ul>
         <li id="location">{{ location }}</li>
         <li id="day_average_temperature">{{ day_average_temperature }}</li>

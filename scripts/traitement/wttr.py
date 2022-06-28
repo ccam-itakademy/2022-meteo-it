@@ -4,14 +4,15 @@ from bs4 import BeautifulSoup as bs
 # import os
 # import re 
 from datetime import datetime
-from selenium import webdriver
+# from selenium import webdriver
 
 import sys
 sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
-from vocal_recognition import text as recorded_city
+#from vocal_recognition import text as recorded_city
 
 today = datetime.today().strftime('%Y-%m-%d')
-city = recorded_city
+#city = recorded_city
+city = 'sannois'
 
 def askWttr(city):
     url = "https://wttr.in/" + city
@@ -50,7 +51,10 @@ def getWeatherReport(response):
     weather_report['humidity'] = {'value': current_weather['humidity'], 'unit': ' %'}
     weather_report['wind'] = {'value': current_weather['windspeedKmph'], 'unit': ' km/h'}
     weather_report['rain'] = {'value': current_weather['precipMM'], 'unit': ' mm'}
-
+    
+    fichier = open("weather_description.txt", "w")
+    fichier.write(weather_report['weather_description']['value'])
+    fichier.close()
     return weather_report
 
 response = askWttr(city)
@@ -68,5 +72,5 @@ weather_report = getWeatherReport(response)
 #         f_output.write(soup.prettify("utf-8"))
 
 # This will open a new window every time...
-driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
-driver.get('http://192.168.1.20/2022-meteo-it/templates/output.php')
+# driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver')
+# driver.get('http://192.168.1.20/2022-meteo-it/templates/output.php')
