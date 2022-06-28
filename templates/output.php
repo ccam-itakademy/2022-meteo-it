@@ -20,7 +20,7 @@ $backgroundUrl = null;
 // if (in_array($weather_description, $tableauPluie)) {
 if ($weather_description == "Ensoleillé") {
     $backgroundUrl = $conf['soleil'];
-};
+}
 
 echo $backgroundUrl;
 ?>
