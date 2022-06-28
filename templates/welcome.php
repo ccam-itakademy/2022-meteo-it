@@ -10,5 +10,7 @@
     <p>Welcome page</p>
     <p>Liste déroulante ou micro</p>
     <h1 > {{ message }}</h1>
+    
+    <a href="/weather-report">Test</a>
 </body>
 </html>

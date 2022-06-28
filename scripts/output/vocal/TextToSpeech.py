@@ -2,7 +2,7 @@
 # to speech conversion
 from gtts import gTTS
 import sys
-sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
+sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement/')
 from wttr import weather_report as weather_report
 
 # This module is imported so that we can
@@ -23,7 +23,7 @@ myobj = gTTS(text=today_meteo, lang=language, slow=False)
 
 # Saving the converted audio in a wav file named
 # welcome
-myobj.save("Output.mp3")
+myobj.save("output.mp3")
 
 # Playing the converted file
 # os.system("mpg321 welcome.mp3")
@@ -32,5 +32,5 @@ from pydub import AudioSegment
 from pydub.playback import play
 
 
-song = AudioSegment.from_mp3("welcome.mp3")
+song = AudioSegment.from_mp3("output.mp3")
 play(song)

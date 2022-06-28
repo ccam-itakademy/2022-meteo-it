@@ -2,15 +2,20 @@
 from flask import Flask, render_template, redirect
 import webbrowser
 from threading import Timer
+import os
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/welcome")
 def welcome():
     return render_template("welcome.php", message = "Bienvenue sur Météo ")
 
 def open_browser():
-    webbrowser.open_new('http://127.0.0.1:5000/')
+    return webbrowser.open_new('http://127.0.0.1:5000/welcome')
+
+@app.route("/restart")
+def restart():
+    return redirect("/welcome")
 
 @app.route("/weather-report")
 def weather_report():
@@ -18,6 +23,7 @@ def weather_report():
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement')
     from wttr import weather_report as weather_report
     data = weather_report
+    
     location = data['location']['value']
     day_average_temperature = data['day_average_temperature']['value'] + data['day_average_temperature']['unit']
     day_min_temperature = data['day_min_temperature']['value'] + data['day_min_temperature']['unit']
@@ -37,7 +43,7 @@ def weather_report():
         wind = wind,
         rain = rain,
     )
-    
+
 if __name__ == "__main__":
     Timer(1, open_browser).start();
     app.run()

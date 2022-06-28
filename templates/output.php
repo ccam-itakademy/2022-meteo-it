@@ -17,5 +17,7 @@
         <li id="wind">{{ wind }}</li>
         <li id="rain">{{ rain }}</li>
     </ul>
+    
+    <a href="/restart">GO back</a>
 </body>
 </html>
