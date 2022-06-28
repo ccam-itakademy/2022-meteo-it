@@ -18,6 +18,6 @@
         <li id="rain">{{ rain }}</li>
     </ul>
     
-    <a href="/restart">GO back</a>
+    <a href="/welcome">GO back</a>
 </body>
 </html>

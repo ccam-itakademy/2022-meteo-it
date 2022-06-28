@@ -13,22 +13,19 @@ def welcome():
 def open_browser():
     return webbrowser.open_new('http://127.0.0.1:5000/welcome')
 
-@app.route("/restart")
-def restart():
-    if (os.path.exists('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/city.txt') and os.path.exists('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/record.wav')):
-        os.remove('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/city.txt')
-        os.remove('/Applications/MAMP/htdocs/2022-meteo-it/scripts/input/vocal/record.wav')
-        return redirect("/welcome")
-    else:
-        return redirect("/welcome")
-
-
 @app.route("/weather-report")
 def weather_report():
+
     import sys
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement')
+    sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
     # sys.path.insert(0, '/Applications/MAMP/htdocs/2022-meteo-it/scripts/traitement')
-    from wttr import weather_report as weather_report
+    from vocal_recognition import getCityFromAudio
+    from wttr import askWttr,getWeatherReport
+    
+    recorded_city = getCityFromAudio() 
+    response = askWttr(recorded_city)
+    weather_report = getWeatherReport(response, recorded_city)
     data = weather_report
     
     location = data['location']['value']

@@ -6,15 +6,15 @@ from os.path import exists
 
 from get_mic_index import indexMic
 
-CHUNK = 4*1024
-FORMAT = pyaudio.paInt16
-CHANNELS = 1
-RATE = 44100
-RECORD_SECONDS = 3
-MIC_INDEX = indexMic # Index à modifier en fonction de l'index du micro
-WAVE_OUTPUT_FILENAME = "record.wav"
+def getCityFromAudio(): 
+    CHUNK = 4*1024
+    FORMAT = pyaudio.paInt16
+    CHANNELS = 1
+    RATE = 44100
+    RECORD_SECONDS = 3
+    MIC_INDEX = indexMic # Index à modifier en fonction de l'index du micro
+    WAVE_OUTPUT_FILENAME = "record.wav"
 
-if not exists('city.txt') and not exists('record.wav'):
     with py_error_handling.noalsaerr():
         p = pyaudio.PyAudio()   
         stream = p.open(format=FORMAT,
@@ -49,5 +49,7 @@ if not exists('city.txt') and not exists('record.wav'):
             fichier = open("city.txt", "w")
             fichier.write(text)
             fichier.close()
+            return text
         except:
             print('une erreur technique est survenue, merci de réessayer')
+    
