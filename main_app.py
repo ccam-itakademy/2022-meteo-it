@@ -1,12 +1,17 @@
 # pip install flask
 from flask import Flask, render_template, redirect
+import requests
 import webbrowser
 from threading import Timer
 import os
 import time
+import sys
+import RPi.GPIO as GPIO
+from ADCDevice import *
 
 app = Flask(__name__)
 data = {}
+
 @app.route("/welcome")
 def welcome():
     return render_template("welcome.php", message = "Bienvenue sur Météo ")
@@ -16,7 +21,6 @@ def open_browser():
 
 @app.route("/weather-report")
 def weather_report():
-    import sys
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/traitement')
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/vocal')
     sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/output/vocal')

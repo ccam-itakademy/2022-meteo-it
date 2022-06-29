@@ -19,5 +19,8 @@
     </ul>
     
     <a href="/welcome">GO back</a>
+    
+    <script src="script.js"></script>
 </body>
 </html>
+
