@@ -1,1 +1,67 @@
 /* CSS */
+body {
+    background-image: url("../assets/clouds1.jpg");
+    background-position: center;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+h2 {
+    
+    font-size: 7em;
+    text-align: center;
+}
+
+
+img {
+    width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+div {
+    margin: auto;
+    height: 100px;
+    width: 100px;   
+}
+
+
+#weather_description {
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+}
+
+
+#day_min_temperature {
+    font-size: 3em;
+    flex: 1 1;
+    margin-left: -100%;
+}
+
+
+#day_max_temperature {
+    font-size: 3em;
+    flex: 1 1;
+    margin-left: 100%;
+}
+
+
+#humidity, #wind {
+    text-align: left;
+    font-size: 3em;
+    flex: 1 1;
+    margin-left: 10%;
+    width: 20%;
+}
