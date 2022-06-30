@@ -6,8 +6,6 @@ from threading import Timer
 import os
 import time
 import sys
-import RPi.GPIO as GPIO
-from ADCDevice import *
 
 app = Flask(__name__)
 data = {}
@@ -17,7 +15,14 @@ def welcome():
     return render_template("welcome.php", message = "Bienvenue sur Météo ")
 
 def open_browser():
-    return webbrowser.open_new('http://127.0.0.1:5000/welcome')
+    webbrowser.open_new('http://127.0.0.1:5000/welcome')
+    say_welcome()
+
+def say_welcome():
+    sys.path.insert(0, '/var/www/html/2022-meteo-it/scripts/input/sensor')
+    from sensor import setup, loop
+    setup()
+    loop()
 
 @app.route("/weather-report")
 def weather_report():
@@ -61,4 +66,3 @@ def weather_report():
 if __name__ == "__main__":
     Timer(1, open_browser).start();
     app.run()
-    

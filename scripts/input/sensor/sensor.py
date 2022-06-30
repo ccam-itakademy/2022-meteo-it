@@ -7,10 +7,13 @@
 ########################################################################
 import RPi.GPIO as GPIO
 import time
+from pydub import AudioSegment
+from pydub.playback import play
+
 
 trigPin = 16
 echoPin = 18
-MAX_DISTANCE = 60      # define the maximum measuring distance, unit: cm
+MAX_DISTANCE = 40      # define the maximum measuring distance, unit: cm
 timeOut = MAX_DISTANCE*60   # calculate timeout according to the maximum measuring distance
 
 def pulseIn(pin,level,timeOut): # obtain pulse time of a pin under timeOut
@@ -44,12 +47,26 @@ def welcomeSonar():
 def loop():
     sayWelcome = False
     while(True):
-        distance = getSonar() # get distance
-        print ("The distance is : %.2f cm"%(distance))
-        if distance != 0 and not sayWelcome:
-           welcomeSonar()
-           sayWelcome = True
-        time.sleep(1)
+        
+        #print ("The distance is : %.2f cm"%(distance))
+        cmpDistance = 0
+        while cmpDistance < 4 :
+            distance = getSonar() # get distance
+            print ("The distance is : %.2f cm"%(distance))
+            if distance != 0 and not sayWelcome:
+                cmpDistance = cmpDistance + 1
+                print (cmpDistance)
+            elif distance  == 0 and not sayWelcome :
+                cmpDistance = 0
+            time.sleep(1)
+        song = AudioSegment.from_mp3("welcome.mp3")
+        play(song)    
+        print ("Bonjour")
+        welcomeSonar()
+        sayWelcome = True
+        return False
+        # pas oublier de mettre le sayWelcome  à Fasle à la fin de la recherche
+        
         
 if __name__ == '__main__':     # Program entrance
     
@@ -63,3 +80,4 @@ if __name__ == '__main__':     # Program entrance
 #!si on detect une distance differente de zero pendant 3s
 #!on envoi bienvenue, appuyer sur le boutton
       
+

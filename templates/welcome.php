@@ -13,6 +13,7 @@
     <h1 > {{ message }}</h1>
     
     <a href="/weather-report">Test</a>
+    <p>{{ index }}</p>
     
     <label for="city-select">Choose a city:</label>
 
