@@ -13,12 +13,12 @@ Le but de notre staion meteo inclusive et de restituer la meteo en vocal, en vis
 Les technologies et outils employés dans notre projet sont :
 
 - FontAwesome : https://fontawesome.com/
-- framework vueJs, pour la partie front
+- framework flask, pour la partie front
 - framework flask python, pour la partie API
 
 Organisation du travail :
 
-- Monday : 
+- Monday : daily rapide tout les matin
 - discord de projet :
 - drive partagés: copie du sujet 
 
@@ -38,13 +38,6 @@ Utiliser le projet :
     (env)$ python app.py 
 ```
 
-- Lancer le serveur vueJs dans un autre terminal
-
-```sh
-    $ cd client  
-    $ npm install  
-    $ npm run serve  
-```
 
 Navigate to http://localhost:8080
 
@@ -71,3 +64,21 @@ Matériel :
 ## Demo
 
 // vieux projet https://drive.google.com/file/d/1sAFOdwA0G8Q2I-6xTNejSyIRd8Fv52IE/view
+
+## Docs
+
+- projet meteo existant:
+https://www.hackster.io/aerodynamics/weather-and-news-station-e-paper-and-raspberry-pi-a19fa3
+
+https://www.youtube.com/watch?v=DDqUEjeDyUo
+
+- server:
+https://howtoraspberrypi.com/how-to-install-web-server-raspberry-pi-lamp/
+
+- micro:
+https://raspberrytips.fr/brancher-micro-raspberry-pi/
+https://www.pofilo.fr/post/20181216-mic-raspberry-pi/
+
+- audio: 
+https://people.csail.mit.edu/hubert/pyaudio/docs/#class-pyaudio
+
